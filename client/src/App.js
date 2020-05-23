@@ -6,7 +6,14 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Alert from "./components/layout/Alert";
 import Dashboard from "./components/dashboard/Dashboard";
-import CreateProfile from "./components/profile-forms/CreateProfile";
+//  import CreateProfile from "./components/profile-forms/CreateProfile";
+import ProfileForm from "./components/profile-forms/ProfileForm";
+import AddExperience from "./components/profile-forms/AddExperience";
+import AddEducation from "./components/profile-forms/AddEducation";
+import Profile from "./components/profile/Profile";
+import Profiles from "./components/profiles/Profiles";
+import Posts from "./components/posts/Posts";
+import Post from "./components/post/Post";
 import PrivateRoute from "./components/routing/PrivateRoute";
 // Redux
 import { Provider } from "react-redux";
@@ -36,6 +43,8 @@ const App = () => {
             <Switch>
               <Route exact path="/register" component={Register}></Route>
               <Route exact path="/login" component={Login}></Route>
+              <Route exact path="/Profiles" component={Profiles}></Route>
+              <Route exact path="/Profile/:id" component={Profile}></Route>
               <PrivateRoute
                 exact
                 path="/dashboard"
@@ -44,8 +53,25 @@ const App = () => {
               <PrivateRoute
                 exact
                 path="/create-profile"
-                component={CreateProfile}
-              ></PrivateRoute>
+                component={ProfileForm}
+              />
+              <PrivateRoute
+                exact
+                path="/edit-profile"
+                component={ProfileForm}
+              />
+              <PrivateRoute
+                exact
+                path="/add-experience"
+                component={AddExperience}
+              />
+              <PrivateRoute
+                exact
+                path="/add-education"
+                component={AddEducation}
+              />
+              <PrivateRoute exact path="/posts" component={Posts} />
+              <PrivateRoute exact path="/post/:id" component={Post} />
             </Switch>
           </section>
         </Fragment>
