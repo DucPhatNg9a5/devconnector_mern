@@ -1,0 +1,25 @@
+/////////////////////////////////GIT HUB///////////////////////////////////////
+git push origin master
+
+cd client
+npm run build
+cd ..
+NODE_ENV=production node server.js
+
+///////////////////////////////////HEROKU//////////////////////////////////////
+devconnector-mern-stack-app
+heroku git:remote -a devconnector-mern-stack-app
+
+heroku apps:rename devconnector-mern-stack-app
+
+
+git checkout -b production
+git add -f config/production.json
+// DON'T PUSH THE PRODUCTION BRANCH TO GITHUB
+git commit -m 'ready to deploy'
+heroku create
+heroku git:remote -a devconnector-mern-stack-app
+git push heroku production:master
+// After deployment you can delete the production branch
+git checkout master
+git branch -D production
