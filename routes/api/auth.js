@@ -52,7 +52,7 @@ router.post(
       if (!user) {
         return res
           .status(400)
-          .json({ errors: [{ msg: "Invalid cresentials" }] });
+          .json({ errors: [{ msg: "Invalid credentials" }] });
       }
 
       // check if password is right
@@ -61,7 +61,7 @@ router.post(
       if (!isMatched) {
         return res
           .status(400)
-          .json({ errors: [{ msg: "Invalid cresentials" }] });
+          .json({ errors: [{ msg: "Invalid credentials" }] });
       }
 
       // return jsonwebtoken
